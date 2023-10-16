@@ -1,26 +1,46 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes, Model  } = require('sequelize');
 
-const conexao = new Sequelize('', '', '', {
+const conexao = new Sequelize('cleancar', 'root', 'root', {
     host: 'localhost', // Host do banco de dados MySQL
     dialect: 'mysql',
   });
 
-/*const User = sequelize.define('User', {
-  username: DataTypes.STRING,
-  email: DataTypes.STRING,
-  // Outros campos da tabela
-});
+class Usuario extends Model { }
 
-(async () => {
-  await sequelize.sync(); 
+Usuario.init({
+  id : {
+    type : DataTypes.INTEGER,
+    autoIncrement : true,
+    primaryKey: true,
+    allowNull: false
+  },
+  email: {
+    type: DataTypes.STRING(100),
+    allowNull: false,
+    unique: true
+  },
+  senha:{
+      type: DataTypes.STRING(64),
+      allowNull: false
+  }
+  },{
+  sequelize: conexao,
+  tableName: 'usuarios', 
+  modelName: 'Usuario'});
 
-  // Exemplo de consulta
-  const users = await User.findAll();
-  console.log('Resultados da consulta:', users);
-})();*/
+  //funcao invacoda imediatamente
+( async ()=>{
+    
+  try{
+      await Usuario.sync({ force : false });
 
+  }catch(erro){
+      console.log(erro);
+  }
+
+})();
 
 module.exports = {
     conexao: conexao,
-    
+    Usuario: Usuario
 }
