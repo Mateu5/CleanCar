@@ -34,6 +34,50 @@ const criar = async function(requisicao, resposta) {
     resposta.json(novoUsuario);
 }
 
+const login = async function(requisicao, resposta){
+
+    const validador = new Validator( requisicao.body, {
+        email : 'required|email',
+        senha : 'required|minLength:6'
+    },{
+        'senha.required' : 'o campo senha é obrigatorio',
+        'email.required' : 'o campo email é obrigatorio'
+    });
+
+    let passou = await validador.check();
+
+    if (!passou) {
+        resposta.status(422).json( validador.errors);
+        return;
+    }
+
+    let usuario = await Usuario.findOne({
+        where : {
+            email : requisicao.body.email
+        }
+    })
+
+    if( usuario === null ) {
+        return resposta.status(422).json({
+            email: 'E-mail não cadastrado'
+        })
+    }
+
+    let senha = requisicao.body.senha;
+
+    let senhaCorreta = await bcrypt.compare( senha, usuario.senha);
+
+    if(!senhaCorreta){
+        return resposta.status(422).json({
+            senha : 'senha incorreta'
+        })
+    }
+
+    resposta.json( usuario );
+
+}
+
 module.exports = {
-    criar
+    criar,
+    login
 }
