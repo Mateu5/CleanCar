@@ -16,7 +16,7 @@ app.use(function(req, res, next) {
 
 
 app.get("/teste", listarCliente);
-app.post("/usuario", criar);
+app.post("/criar", criar);
 app.post("/login", login);
 
 

@@ -26,7 +26,7 @@ function Signup(){
           console.log('Username:', username);
           console.log('Password:', password);
     
-          let res = await api.post('/usuario', {
+          let res = await api.post('/criar', {
             name: username,
             email: email,
             senha: password

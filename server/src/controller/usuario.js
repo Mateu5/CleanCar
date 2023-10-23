@@ -1,6 +1,6 @@
 const { Usuario } = require('../banco-de-dados/connection');
 const { Validator } = require('node-input-validator');
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 
 const criar = async function(requisicao, resposta) {
 
@@ -13,7 +13,7 @@ const criar = async function(requisicao, resposta) {
         senha : 'required|minLength:6'
     },{
 
-        'nome.required' : 'o campo nome é obrigatorio',
+        'name.required' : 'o campo nome é obrigatorio',
         'senha.required' : 'o campo senha é obrigatorio',
         'email.required' : 'o campo email é obrigatorio'
     });
@@ -27,11 +27,12 @@ const criar = async function(requisicao, resposta) {
 
     let senha = requisicao.body.senha;
 
-    let hashSenha = await bcrypt.hash( senha, 10 );
+    //let hashSenha = await bcrypt.hash( senha, 10 );
 
     let novoUsuario = await Usuario.create({
+        name : requisicao.body.name,
         email : requisicao.body.email,
-        senha : hashSenha
+        senha : senha
     })
 
     resposta.json(novoUsuario);
@@ -68,16 +69,16 @@ const login = async function(requisicao, resposta){
 
     let senha = requisicao.body.senha;
 
-    let senhaCorreta = await bcrypt.compare( senha, usuario.senha);
+    //let senhaCorreta = await bcrypt.compare( senha, usuario.senha);
 
-    if(!senhaCorreta){
+    //if(!senhaCorreta){
+    if(senha =! usuario.senha){
         return resposta.status(422).json({
             senha : 'senha incorreta'
         })
     }
 
     resposta.json( usuario );
-
 }
 
 module.exports = {
