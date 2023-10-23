@@ -8,9 +8,12 @@ const criar = async function(requisicao, resposta) {
     //let senha = requisicao.body.senha;
 
     const validador = new Validator( requisicao.body, {
+        name : 'required|minLength:6',
         email : 'required|email',
         senha : 'required|minLength:6'
     },{
+
+        'nome.required' : 'o campo nome é obrigatorio',
         'senha.required' : 'o campo senha é obrigatorio',
         'email.required' : 'o campo email é obrigatorio'
     });

@@ -14,6 +14,9 @@ Usuario.init({
     primaryKey: true,
     allowNull: false
   },
+  name : {
+    type : DataTypes.STRING(100),
+  },
   email: {
     type: DataTypes.STRING(100),
     allowNull: false,
