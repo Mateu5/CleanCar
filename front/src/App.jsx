@@ -1,7 +1,13 @@
 import React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Login from './pages/login/Login'
-import Signup from "./pages/cadastro/Signup"
+import Signup from './pages/cadastro/Signup'
+import Home from './pages/home/home'
+
+import Agendar from './pages/agendar/Agendar'
+
+import Navbar from "./pages/navbar/navbar"
+
 
 
 
@@ -11,10 +17,13 @@ function App() {
 
   return (
    <BrowserRouter>
+    <Navbar/>
       <Routes>
-          <Route path='/' element={<Login />}></Route>
+          <Route path='/' element={<Home />}></Route>
           <Route path='/Login' element={<Login />}></Route>
-          <Route path='/signup' element={<Signup />}></Route>
+          <Route path='/Signup' element={<Signup />}></Route>
+          <Route path='/Home' element={<Home />}></Route>
+          <Route path='/Agendar' element={<Agendar />}></Route>
       </Routes>
    </BrowserRouter>
   )
