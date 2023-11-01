@@ -8,6 +8,8 @@ function Signup(){
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [cep, setCep] = useState('');
+    const [passwordConfirm, setPasswordConfirm] = useState('');
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -17,19 +19,32 @@ function Signup(){
         setPassword(event.target.value);
     };
 
+     const handlePasswordConfirmChange = (event) => {
+        setPasswordConfirm(event.target.value);
+    };
+
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
     };
 
+    const handleCepChange = (event) => {
+        setCep(event.target.value);
+    };
+
     const handleLogin = async () => {
         try {
-          console.log('Username:', username);
-          console.log('Password:', password);
-    
+            
+        if (password != passwordConfirm){
+            alert("Senhas Diferentes");
+            return;
+        }
+
           let res = await api.post('/criar', {
             name: username,
             email: email,
-            senha: password
+            cep: cep,
+            senha: password,
+
           });
     
           if (res.status === 200) {
@@ -61,7 +76,7 @@ function Signup(){
                 <div className='mb-2'>
                     <label htmlFor="email" >Cep</label>
                     <input type="text" placeholder='00000-000' className='form-control custom-input'
-                     value={email} onChange={handleEmailChange}
+                     value={cep} onChange={handleCepChange}
                     />        
                 </div>
                 <div className='mb-2'>
@@ -72,7 +87,9 @@ function Signup(){
                 </div>
                 <div className='mb-2'>
                     <label htmlFor="senhaConfirm" >Confirme a Senha</label>
-                    <input type="password" placeholder='Confirme sua Senha' className='form-control custom-input'/>        
+                    <input type="password" placeholder='Confirme sua Senha' className='form-control custom-input'
+                    value={passwordConfirm} onChange={handlePasswordConfirmChange}
+                    />        
                 </div>
                 <br></br>
                 <div className='d-grid mt-2'>

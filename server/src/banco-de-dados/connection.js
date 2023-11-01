@@ -25,6 +25,10 @@ Usuario.init({
   senha:{
       type: DataTypes.STRING(64),
       allowNull: false
+  },
+  cep:{
+    type: DataTypes.INTEGER,
+    allowNull: false
   }
   },{
   sequelize: conexao,
