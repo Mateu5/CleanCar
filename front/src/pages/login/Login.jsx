@@ -58,7 +58,8 @@ function  Login(){
                         <label htmlFor="check" className='custom-input-label ms-2'>Lembre-me</label>
                     </div>
                     <div className='d-grid'>
-                        <button className='btn btn-primary' onClick={handleLogin}>Entrar</button>
+                        <button className='btn btn-primary ' onClick={handleLogin}>Entrar</button>
+                        <button className='btn btn-danger mt-2' onClick={handleLogin}>Entrar com Google</button>
                     </div>
                     <p className='text-end mt-2'>
                          <a href="">Esqueci minha senha</a> <Link to="/signup" className='ms-2'>Registrar-se</Link>

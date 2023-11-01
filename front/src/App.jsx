@@ -3,10 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Login from './pages/login/Login'
 import Signup from './pages/cadastro/Signup'
 import Home from './pages/home/home'
-
 import Agendar from './pages/agendar/Agendar'
-
 import Navbar from "./pages/navbar/navbar"
+import Footer from "./pages/footer/footer"
 
 
 
@@ -24,7 +23,9 @@ function App() {
           <Route path='/Signup' element={<Signup />}></Route>
           <Route path='/Home' element={<Home />}></Route>
           <Route path='/Agendar' element={<Agendar />}></Route>
+          <Route path='/footer' element={<Footer />}></Route>
       </Routes>
+      <Footer/>
    </BrowserRouter>
   )
 }

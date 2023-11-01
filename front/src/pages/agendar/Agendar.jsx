@@ -5,7 +5,7 @@ import React, { useState } from "react"
 
 function agendar(){
     return(
-  <div>foi</div>
+  <div>agendar</div>
     )
 }
 

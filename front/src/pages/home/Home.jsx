@@ -3,20 +3,17 @@ import React, { useState } from "react"
 import api from "../../../services/api"
 import '../../global.css'
 
-import { Container, Row, Col, Form, InputGroup, FormControl, Button, Card } from 'react-bootstrap';
+import { Container, Row, Col, Form, InputGroup, FormControl, Button} from 'react-bootstrap';
 
 
 
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 
-
-
-;
 function home(){
     return(
       <>
       
+    {/* HOME */}
+
       <section>
       <div className="bg-dark text-secondary px-4 py-5 text-center" id="home">
       <div className="py-5">
@@ -30,6 +27,8 @@ function home(){
       </div>
     </div>
     </section>
+
+    {/* SOBRE */}
 
     <section id="about" >
     <div className="container col-xxl-8 px-4 py-5">
@@ -45,6 +44,9 @@ function home(){
     </div>
   </div>
   </section>
+
+  
+  {/* CONTATO */}
 
   <section id="contact-us">
       <Container>
@@ -95,8 +97,6 @@ function home(){
           </Col>
         </Row>
       </Container>
-
-      
     </section>
 
   

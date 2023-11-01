@@ -65,7 +65,7 @@ box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
 
 /*Contato style*/
 #contact-us {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
   padding: 10px 0;
 
 }
@@ -156,6 +156,11 @@ box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+
+
+
+
 
 
 
