@@ -6,6 +6,7 @@ import Home from './pages/home/home'
 import Agendar from './pages/agendar/Agendar'
 import Navbar from "./pages/navbar/navbar"
 import Footer from "./pages/footer/footer"
+import EsqueciSenha from "./pages/esqueciSenha/esqueciSenha"
 
 
 
@@ -24,6 +25,8 @@ function App() {
           <Route path='/Home' element={<Home />}></Route>
           <Route path='/Agendar' element={<Agendar />}></Route>
           <Route path='/footer' element={<Footer />}></Route>
+          <Route path='/esqueciSenha' element={<EsqueciSenha />}></Route>
+
       </Routes>
       <Footer/>
    </BrowserRouter>

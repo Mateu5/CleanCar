@@ -59,6 +59,12 @@ function Signup(){
                     />        
                 </div>
                 <div className='mb-2'>
+                    <label htmlFor="email" >Cep</label>
+                    <input type="text" placeholder='00000-000' className='form-control custom-input'
+                     value={email} onChange={handleEmailChange}
+                    />        
+                </div>
+                <div className='mb-2'>
                     <label htmlFor="senha" >Senha</label>
                     <input type="password" placeholder='Digite a senha' className='form-control custom-input'
                      value={password} onChange={handlePasswordChange}

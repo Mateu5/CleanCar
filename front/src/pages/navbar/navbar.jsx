@@ -8,7 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 function navbar(){
     return(
-        <Navbar collapseOnSelect expand="lg" bg="light" variant="light"> {/* Use o 'bg' e 'variant' para definir o estilo */}
+        <Navbar className="fixed-top" collapseOnSelect expand="lg" bg="light" variant="light"> {/* Use o 'bg' e 'variant' para definir o estilo */}
       <Container fluid className="nav-container"> {/* Use 'fluid' para ocupar toda a largura */}
         <Navbar.Brand href="/home">Clean Car</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
