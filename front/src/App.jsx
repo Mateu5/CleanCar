@@ -7,6 +7,7 @@ import Agendar from './pages/agendar/Agendar'
 import Navbar from "./pages/navbar/navbar"
 import Footer from "./pages/footer/footer"
 import EsqueciSenha from "./pages/esqueciSenha/esqueciSenha"
+import RedefinicaoSenha from "./pages/redefinicaoSenha/redefinicaoSenha"
 
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route path='/Agendar' element={<Agendar />}></Route>
           <Route path='/footer' element={<Footer />}></Route>
           <Route path='/esqueciSenha' element={<EsqueciSenha />}></Route>
+          <Route path='/redefinicaoSenha' element={<RedefinicaoSenha />}></Route>
 
       </Routes>
       <Footer/>

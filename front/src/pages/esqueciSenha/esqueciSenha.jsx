@@ -9,7 +9,7 @@ function esqueciSenha(){
         
 <div className='signup template d-flex justify-content-center align-items-center 100-w vh-100'>
         <div className='form_container p-5 rounded bg-white w-20'>
-            <form>
+            <form className="text-center">
             <h3 className='text-center'>Recuperação de senha</h3>
             <p className='text-center'>Informe seu endereço de email que nós enviaremos um link para alteração da senha</p>
             <div className="input-group flex-nowrap mt-5">
@@ -18,10 +18,12 @@ function esqueciSenha(){
             </svg></span>
             <input type="text" className="form-control" placeholder="Digite seu Email Animal" aria-label="Username" aria-describedby="addon-wrapping"></input>
             </div>
+            <button className='btn btn-primary mb-5 mt-5 '>Enviar</button>
+            <ul className="nav justify-content-center border-bottom"></ul>
             </form>
                 <p className='text-end mt-2'>
                          <Link to="/login">Voltar</Link> <Link to="/signup" className='ms-2'>Criar outra conta</Link>
-                    </p>
+                </p>
         </div>
    
 </div>

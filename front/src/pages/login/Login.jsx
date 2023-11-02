@@ -49,7 +49,7 @@ function  Login(){
                     </div>
                     <div className='mb-2'>
                         <label htmlFor="senha" >Senha</label>
-                        <input type="password" placeholder='Digite a senha' className='form-control custom-input'
+                        <input type="password" placeholder='Digite a senha' className='form-control custom-input' minlength="8" required
                             value={senha} onChange={handleSenhaChange}
                         />        
                     </div>
