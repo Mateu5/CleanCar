@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import '../../global.css'
 import api from "../../../services/api"
 
-function  Login(){
+function Login(){
 
     const [ email, setEmail] = useState('');
     const [ senha , setSenha] = useState('');
@@ -21,7 +21,7 @@ function  Login(){
 
             let res = await api.post('/login', {
                 email: email,
-                senha: password
+                senha: senha
             });
 
             if (res.status === 200) {
@@ -30,11 +30,10 @@ function  Login(){
               }
             
         } catch (error) {
-            console.log(error);
+            console.log("ocorreu um erro" + error);
         }
 
     }
-
 
     return(
         <div className='login template d-flex justify-content-center align-items-center 100-w vh-100'>
@@ -49,7 +48,7 @@ function  Login(){
                     </div>
                     <div className='mb-2'>
                         <label htmlFor="senha" >Senha</label>
-                        <input type="password" placeholder='Digite a senha' className='form-control custom-input' minlength="8" required
+                        <input type="password" placeholder='Digite a senha' className='form-control custom-input' minLength="8" required
                             value={senha} onChange={handleSenhaChange}
                         />        
                     </div>

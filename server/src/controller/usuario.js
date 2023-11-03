@@ -42,7 +42,7 @@ const login = async function(requisicao, resposta){
 
     const validador = new Validator( requisicao.body, {
         email : 'required|email',
-        senha : 'required|minLength:6'
+        senha : 'required'
     },{
         'senha.required' : 'o campo senha é obrigatorio',
         'email.required' : 'o campo email é obrigatorio'
