@@ -1,6 +1,5 @@
 import {Link} from 'react-router-dom'
 import React, { useState } from "react"
-import api from "../../../services/api"
 import '../../global.css'
 
 import { Container, Row, Col, Form, InputGroup, FormControl, Button} from 'react-bootstrap';
@@ -8,7 +7,7 @@ import { Container, Row, Col, Form, InputGroup, FormControl, Button} from 'react
 
 
 
-function home(){
+function Home(){
     return(
       <>
       
@@ -114,4 +113,4 @@ function home(){
     
 }
 
-export default home
+export default Home

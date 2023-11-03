@@ -1,8 +1,9 @@
 const express = require('express');
 const { conexao, User } = require('./src/banco-de-dados/connection');
 
-const { listarCliente } = require('./src/controller/teste');
-const { criar, login } = require('./src/controller/usuario')
+//const { criar, login } = require('./src/controller/usuario')
+const { register } = require('./src/controller/RegisterController');
+const { login } = require('./src/controller/LoginController');
 
 const app = express();
 app.use( express.json() );
@@ -13,10 +14,7 @@ app.use(function(req, res, next) {
     next();
 });
   
-
-
-app.get("/teste", listarCliente);
-app.post("/criar", criar);
+app.post("/register", register);
 app.post("/login", login);
 
 

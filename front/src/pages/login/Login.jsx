@@ -1,9 +1,12 @@
 import React, { useState } from "react"
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import '../../global.css'
 import api from "../../../services/api"
 
 function Login(){
+
+    const navigate = useNavigate();
+    
 
     const [ email, setEmail] = useState('');
     const [ senha , setSenha] = useState('');
@@ -27,7 +30,10 @@ function Login(){
             if (res.status === 200) {
                 console.log('Login bem-sucedido');
                 alert('sucesso');
-              }
+                window.location.href = "/home";
+            }else{
+                alert('Credenciais inválidas. Por favor, tente novamente.');
+            }
             
         } catch (error) {
             console.log("ocorreu um erro" + error);

@@ -39,12 +39,11 @@ function Signup(){
             return;
         }
 
-          let res = await api.post('/criar', {
+          let res = await api.post('/register', {
             name: username,
             email: email,
             cep: cep,
             senha: password,
-
           });
     
           if (res.status === 200) {
@@ -81,7 +80,7 @@ function Signup(){
                 </div>
                 <div className='mb-2'>
                     <label htmlFor="senha" >Senha</label>
-                    <input type="password" placeholder='Digite a senha' className='form-control custom-input' minlength="8" required
+                    <input type="password" placeholder='Digite a senha' className='form-control custom-input'
                      value={password} onChange={handlePasswordChange}
                     />        
                 </div>
