@@ -6,6 +6,7 @@ const register = async function(requisicao, resposta) {
 
     //let email = requisicao.body.email;
     //let senha = requisicao.body.senha;
+    //let senha = requisicao.body.senha;
 
     const validador = new Validator( requisicao.body, {
         name : 'required|minLength:6',
