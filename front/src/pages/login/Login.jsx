@@ -11,6 +11,14 @@ function Login(){
     const [ email, setEmail] = useState('');
     const [ senha , setSenha] = useState('');
 
+    async function handleLoginGoogle(){
+        try {
+            return await api.get("/login/federated/google");
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
     };
@@ -48,13 +56,13 @@ function Login(){
                     <h3 className='text-center'>Bem-Vindo</h3>
                     <div className='mb-2'>
                         <label htmlFor="email" >Email</label>
-                        <input type="email" placeholder='Digite o E-mail' className='form-control custom-input'
+                        <input type="email" placeholder='Digite o E-mail' autocomplete="email" className='form-control custom-input' name="email"
                             value={email} onChange={handleEmailChange}
                         />        
                     </div>
                     <div className='mb-2'>
                         <label htmlFor="senha" >Senha</label>
-                        <input type="password" placeholder='Digite a senha' className='form-control custom-input' minLength="8" required
+                        <input name="senha" type="password" placeholder='Digite a senha' className='form-control custom-input' minLength="8" 
                             value={senha} onChange={handleSenhaChange}
                         />        
                     </div>
@@ -71,7 +79,7 @@ function Login(){
 
                       
 
-                        <button className='btn btn-light mt-2' onClick={handleLogin} ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-google " viewBox="0 0 16 16" >
+                        <button className='btn btn-light mt-2' onClick={handleLoginGoogle} ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-google " viewBox="0 0 16 16" >
                         <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
                         </svg>  Entrar com Google </button>
 
