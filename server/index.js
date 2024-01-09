@@ -19,9 +19,9 @@ app.use(function(req, res, next) {
 });
 
 passport.use(new GoogleStrategy({
-    clientID: '611161855689-i1r4p99o0tubcee3bp7a7ccmhv8jqtkg.apps.googleusercontent.com',
-    clientSecret: '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',
-    callbackURL: 'http://localhost:3000/auth/google/callback',
+    clientID: '',
+    clientSecret: '',
+    callbackURL: '',
     scope: [ 'profile' ]
   }, function verify(issuer, profile, cb) {
     db.get('SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?', [
