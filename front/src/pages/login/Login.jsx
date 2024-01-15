@@ -11,14 +11,11 @@ function Login(){
     const [ email, setEmail] = useState('');
     const [ senha , setSenha] = useState('');
 
-    async function handleLoginGoogle(){
-        try {
-            return await api.get("/login/federated/google");
-        } catch (error) {
-            console.log(error);
-        }
+    function handleLoginGoogle() {
+        //alert("entrou")
+        window.location.href = 'http://localhost:3000/auth/google'
     }
-
+      
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
     };
@@ -37,7 +34,9 @@ function Login(){
 
             if (res.status === 200) {
                 console.log('Login bem-sucedido');
-                alert('sucesso');
+                
+                alert('sucesso' + res.data.token);
+                await localStorage.setItem('token', res.data.token);
                 window.location.href = "/home";
             }else{
                 alert('Credenciais inválidas. Por favor, tente novamente.');
@@ -56,7 +55,7 @@ function Login(){
                     <h3 className='text-center'>Bem-Vindo</h3>
                     <div className='mb-2'>
                         <label htmlFor="email" >Email</label>
-                        <input type="email" placeholder='Digite o E-mail' autocomplete="email" className='form-control custom-input' name="email"
+                        <input type="email" placeholder='Digite o E-mail' autoComplete="off" className='form-control custom-input' name="email"
                             value={email} onChange={handleEmailChange}
                         />        
                     </div>

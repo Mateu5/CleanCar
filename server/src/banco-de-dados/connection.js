@@ -28,8 +28,8 @@ Usuario.init({
   },
   cep:{
     type: DataTypes.INTEGER,
-    allowNull: false
-  }
+
+  },
   },{
   sequelize: conexao,
   tableName: 'usuarios', 
