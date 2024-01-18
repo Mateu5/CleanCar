@@ -3,10 +3,10 @@ const { conexao } = require('../banco-de-dados/connection');
 
 //cria um servico de transporte
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: '',
     auth: {
-        user: 'mateus.ieq32@gmail.com',
-        pass: 'tlzf paiw bpkd vpde'
+        user: '',
+        pass: ''
     },
     tls: {
         rejectUnauthorized: false // Desabilita a verificação do certificado SSL/TLS
